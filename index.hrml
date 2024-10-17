@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Fase Pré-Analítica e Coleta de Sangue Venoso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .options button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .options button.correct {
+            background-color: #28a745;
+        }
+        .options button.incorrect {
+            background-color: #dc3545;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        let score = 0;
+        function checkAnswer(button, correctOption) {
+            const buttons = button.parentElement.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.dataset.correct === 'true') {
+                    btn.classList.add('correct');
+                    if (btn === button) {
+                        score++;
+                    }
+                } else if (btn === button) {
+                    btn.classList.add('incorrect');
+                }
+            });
+            document.getElementById('score').innerText = `Pontuação: ${score} de 30`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz - Fase Pré-Analítica e Coleta de Sangue Venoso</h1>
+        <div id="questions">
+            <!-- Exemplos de perguntas -->
+            <div class="question">
+                <p>1. Qual é o impacto dos exames complementares nas decisões médicas e por que a fase pré-analítica é crucial nesse contexto?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">10% das decisões médicas são baseadas em exames complementares</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">70% das decisões médicas são baseadas em exames complementares</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Nenhum impacto significativo</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">A fase pós-analítica é a mais importante</button></li>
+                </ul>
+            </div>
+            
+            <div class="question">
+                <p>2. O que é o ciclo "brain-to-brain loop"?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Um ciclo de controle de qualidade dos tubos de coleta</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">É a troca de informações entre paciente, médico e laboratório garantindo comunicação eficiente</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Uma técnica de centrifugação de amostras</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Um processo de automação de exames laboratoriais</button></li>
+                </ul>
+            </div>
+
+            <!-- Outras 18 perguntas semelhantes -->
+
+            <!-- 10 novas perguntas -->
+            <div class="question">
+                <p>21. Quais são as etapas da fase pré-analítica?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas coleta e centrifugação</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Inclui coleta, identificação, preparo da amostra e transporte</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Somente a identificação da amostra</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas o preparo da amostra</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>22. Como a automação pode reduzir erros na fase pré-analítica?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Reduz a intervenção humana, diminuindo a chance de erros</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Aumenta o número de etapas manuais</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Diminui a precisão dos resultados</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Não tem impacto significativo</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>23. Qual é a importância da identificação correta do paciente?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Evitar perda de amostras</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Garantir que os resultados sejam atribuídos ao paciente correto</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Aumentar a quantidade de amostras coletadas</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Reduzir o tempo de análise</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>24. Quais fatores podem influenciar os resultados dos exames laboratoriais?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas a dieta</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Dieta, atividade física, medicamentos e horário da coleta</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Somente o horário da coleta</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas a atividade física</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>25. Por que a escolha da veia para punção é importante?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Para facilitar o uso de agulhas maiores</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Para evitar complicações como hematomas e garantir boa qualidade da amostra</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Para diminuir o tempo de coleta</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Para evitar o uso de anticoagulantes</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>26. Quais são os cuidados para evitar hemólise durante a coleta de sangue?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Utilizar agulhas de calibre adequado e homogeneizar corretamente as amostras</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Agitar vigorosamente os tubos</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Usar qualquer tipo de agulha disponível</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Coletar o sangue em tubos sem anticoagulante</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>27. Como deve ser realizada a identificação de pacientes internados?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Pelo número do leito</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Confirmar com o bracelete do paciente e a equipe de enfermagem</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas perguntar o nome ao paciente</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Não é necessário identificar</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>28. Quais são os principais insumos utilizados na coleta a vácuo?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Somente seringas e agulhas</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Tubos de coleta a vácuo, agulhas e adaptadores</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Apenas tubos de vidro</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Somente adaptadores plásticos</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>29. Qual é a importância da estabilidade das amostras durante o transporte?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Para aumentar o volume da amostra</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Para garantir que os componentes do sangue mantenham seus valores dentro de limites aceitáveis</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Para reduzir o tempo de análise</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Para diminuir o risco de contaminação</button></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>30. Quais são os procedimentos recomendados em caso de dificuldade na coleta?</p>
+                <ul class="options">
+                    <li><button onclick="checkAnswer(this, 'false')">Buscar a veia aleatoriamente</button></li>
+                    <li><button onclick="checkAnswer(this, 'true')" data-correct="true">Tentar ajustar a posição da agulha ou usar um novo tubo</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Continuar tentando na mesma veia</button></li>
+                    <li><button onclick="checkAnswer(this, 'false')">Desconsiderar a coleta</button></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="result" id="score">Pontuação: 0 de 30</div>
+    </div>
+</body>
+</html>
